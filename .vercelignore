@@ -1,0 +1,6 @@
+unpacked_andrianne/
+*.py
+*.log
+.antigravityignore
+*.pyc
+__pycache__/
