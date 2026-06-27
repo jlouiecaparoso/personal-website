@@ -41,7 +41,8 @@ def main():
         "2d9a7494-a10b-45a9-970a-9ad26440f554": ("unpacked_andrianne/data.js", "application/javascript"),
         "6f731459-7dbf-4dcf-8b2b-ce103a608cd5": ("unpacked_andrianne/components.js", "application/javascript"),
         "536abcf3-3c6d-4cc3-bc66-913853723053": ("unpacked_andrianne/app.js", "application/javascript"),
-        "399b404f-097d-4759-ab60-a9f64a59e687": ("unpacked_andrianne/atoms.js", "text/jsx")
+        "399b404f-097d-4759-ab60-a9f64a59e687": ("unpacked_andrianne/tweak_atoms.js", "text/jsx"),
+        "fdd62947-6661-4902-9b5d-1d864ba18db9": ("unpacked_andrianne/atoms.js", "text/jsx")
     }
 
     for key, (path, mime) in mappings.items():
