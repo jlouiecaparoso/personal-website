@@ -16,7 +16,7 @@ function Nav({ scrollTo, accent }) {
       borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
       padding: '16px 48px', transition: 'background .2s, border-color .2s'
     }}>
-      <div style={{maxWidth: 1240, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+      <div className="gz-nav-container" style={{maxWidth: 1240, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
         <a onClick={() => scrollTo('top')} style={{display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', cursor: 'pointer'}}>
           <span style={{fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, color: 'var(--gray-900)', letterSpacing: '-.01em'}}>andrianne<span style={{color: 'var(--coral-500)'}}>.</span></span>
         </a>
@@ -182,7 +182,7 @@ function Hero({ t, scrollTo }) {
   const variant = t.heroVariant || 'dashboard';
   return (
     <section id="top" style={{padding: '40px 48px 28px', borderBottom: 'none'}}>
-      <div style={{maxWidth: 1240, margin: '0 auto', display: 'grid', gridTemplateColumns: variant === 'dashboard' ? '1.05fr 1fr' : '1fr', gap: 56, alignItems: 'center'}}>
+      <div className="gz-hero-grid" style={{maxWidth: 1240, margin: '0 auto', display: 'grid', gridTemplateColumns: variant === 'dashboard' ? '1.05fr 1fr' : '1fr', gap: 56, alignItems: 'center'}}>
         <div>
           <div style={{display: 'inline-flex', alignItems: 'center', gap: 10, padding: '6px 14px', borderRadius: 999, background: 'var(--lime-200)', border: '1px solid var(--gray-900)'}}>
             <span className="gz-pulse" style={{width: 8, height: 8, borderRadius: 999, background: 'var(--lime-700)', display: 'inline-block'}}></span>
@@ -279,7 +279,7 @@ function CaseDetail({ k, animateOff }) {
       padding: '36px 40px 40px', background: 'var(--cream)',
       borderTop: '1.5px solid var(--gray-900)'
     }}>
-      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40}}>
+      <div className="gz-casedetail-grid" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40}}>
         <div>
           <Eyebrow>Problem</Eyebrow>
           <p style={{fontSize: 17, lineHeight: 1.55, color: 'var(--fg-1)', margin: '10px 0 28px'}}>{k.problem}</p>
@@ -352,7 +352,7 @@ function FeaturedCase({ k, isOpen, onToggle, animateOff }) {
       boxShadow: isOpen ? '10px 10px 0 var(--gray-900)' : '8px 8px 0 var(--gray-900)',
       transition: 'box-shadow .2s var(--ease-out)'
     }}>
-      <div onClick={onToggle} style={{
+      <div onClick={onToggle} className="gz-featured-grid" style={{
         display: 'grid', gridTemplateColumns: '1.15fr 1fr',
         background: 'var(--gz-accent, var(--yellow-500))', cursor: 'pointer'
       }}>
@@ -549,7 +549,7 @@ function WorkSection({ t }) {
 
         <FeaturedCase k={featured} isOpen={openId === featured.id} onToggle={() => setOpenId(openId === featured.id ? null : featured.id)}/>
 
-        <div style={{marginTop: 36, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22}}>
+        <div className="gz-work-grid" style={{marginTop: 36, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22}}>
           {filtered.map(k => (
             <CaseGridCard
               key={k.id}
@@ -593,7 +593,7 @@ function ServicesSection({ scrollTo }) {
           </div>
         </div>
 
-        <div style={{display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 32}}>
+        <div className="gz-services-grid" style={{display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 32}}>
           {/* Service selectors */}
           <div style={{display: 'flex', flexDirection: 'column', gap: 14}}>
             {data.services.map((sv, i) => (
@@ -646,7 +646,7 @@ function ServicesSection({ scrollTo }) {
 
             <div>
               <Eyebrow>What you get</Eyebrow>
-              <ul style={{listStyle: 'none', padding: 0, margin: '12px 0 0', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10}}>
+              <ul className="gz-deliverables-list" style={{listStyle: 'none', padding: 0, margin: '12px 0 0', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10}}>
                 {s.deliverables.map((d, i) => (
                   <li key={i} style={{display: 'flex', gap: 10, alignItems: 'center', fontSize: 14.5, color: 'var(--fg-1)', padding: '8px 0'}}>
                     <span style={{
@@ -675,7 +675,7 @@ function ServicesSection({ scrollTo }) {
             <Eyebrow>How I run a project · 4-step rhythm</Eyebrow>
             <div style={{flex: 1, height: 1, background: 'var(--gray-900)'}}></div>
           </div>
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24}}>
+          <div className="gz-workflow-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24}}>
             {[
               {n: '01', t: 'Audit',   d: 'Funnel or grid audit. Pinpoint where reach is dropped or pacing lags.', color: 'var(--yellow-500)'},
               {n: '02', t: 'Plan',    d: 'Construct editing style guide, calendar, and lead scraping filters.', color: 'var(--lime-500)'},
@@ -704,7 +704,7 @@ function AboutSection() {
   const data = window.GZ_DATA;
   return (
     <section id="about" style={{padding: '96px 48px 32px'}}>
-      <div style={{maxWidth: 1240, margin: '0 auto', display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 56, alignItems: 'flex-start'}}>
+      <div className="gz-about-grid" style={{maxWidth: 1240, margin: '0 auto', display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 56, alignItems: 'flex-start'}}>
         {/* Profile and Stats Card */}
         <div style={{position: 'sticky', top: 100}}>
           <div style={{
@@ -730,7 +730,7 @@ function AboutSection() {
           </div>
           <div style={{marginTop: 16, padding: 18, background: 'var(--white)', border: '1px solid var(--border)', borderRadius: 14}}>
             <Eyebrow>At a glance</Eyebrow>
-            <div style={{marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14}}>
+            <div className="gz-stats-grid" style={{marginTop: 12, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14}}>
               <div>
                 <div style={{fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 28, color: 'var(--gray-900)', letterSpacing: '-.02em'}}><Counter value={5} suffix="+ yrs"/></div>
                 <div style={{fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--fg-3)', marginTop: 4}}>Total Experience</div>
@@ -775,7 +775,7 @@ function AboutSection() {
             <Eyebrow>Experience</Eyebrow>
             <div style={{marginTop: 16, display: 'flex', flexDirection: 'column'}}>
               {data.experience.map((e, i) => (
-                <div key={i} style={{
+                <div key={i} className="gz-experience-row" style={{
                   display: 'grid', gridTemplateColumns: '160px 1fr',
                   padding: '20px 0', gap: 24, alignItems: 'flex-start',
                   borderTop: i === 0 ? '1.5px solid var(--gray-900)' : '1px solid var(--border)',
@@ -855,7 +855,7 @@ function PressSection() {
           </div>
         </div>
 
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22}}>
+        <div className="gz-press-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22}}>
           {data.press.map((p, i) => (
             <div key={i} style={{
               padding: '26px 26px 24px', borderRadius: 16,
@@ -901,7 +901,7 @@ function ContactSection() {
           background: 'var(--lime-500)',
           boxShadow: '10px 10px 0 var(--gray-900)'
         }}>
-          <div style={{display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 0}}>
+          <div className="gz-contact-grid" style={{display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 0}}>
             <div style={{padding: '52px 56px', background: 'var(--lime-500)'}}>
               <Eyebrow color="var(--gray-800)">Get in touch</Eyebrow>
               <h2 style={{fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1, letterSpacing: '-.03em', margin: '18px 0 16px', color: 'var(--gray-900)'}}>Send details of your video project. Let's build a timeline.</h2>
@@ -915,7 +915,7 @@ function ContactSection() {
                   <a onClick={() => setSubmitted(false)} style={{cursor: 'pointer', marginTop: 14, display: 'inline-block', fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--gray-800)', borderBottom: '1.5px solid var(--gray-800)'}}>← Send another</a>
                 </div>
               ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, maxWidth: 560}}>
+                <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="gz-contact-form" style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, maxWidth: 560}}>
                   {[
                     {id: 'name', label: 'Your name', ph: 'Alex Rivera', col: 1},
                     {id: 'email', label: 'Work email', ph: 'alex@northwind.co', col: 1},
@@ -1014,7 +1014,7 @@ function Footer() {
   return (
     <footer style={{background: 'var(--gray-900)', color: 'var(--cream)', padding: '64px 48px 28px'}}>
       <div style={{maxWidth: 1240, margin: '0 auto'}}>
-        <div style={{display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, alignItems: 'flex-start'}}>
+        <div className="gz-footer-grid" style={{display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, alignItems: 'flex-start'}}>
           <div>
             <span style={{fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 26, color: 'var(--cream)', letterSpacing: '-.01em'}}>andrianne<span style={{color: 'var(--coral-500)'}}>.</span></span>
             <p style={{fontFamily: 'var(--font-body)', fontSize: 15, color: 'var(--gray-300)', marginTop: 16, maxWidth: 360, lineHeight: 1.5}}>High-engagement video editing and cohesive social media content grid planning. Verified B2B contact lists.</p>
@@ -1042,7 +1042,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div style={{marginTop: 56, paddingTop: 22, borderTop: '1px solid var(--gray-700)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.06em', color: 'var(--gray-400)'}}>
+        <div className="gz-footer-copyright" style={{marginTop: 56, paddingTop: 22, borderTop: '1px solid var(--gray-700)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '.06em', color: 'var(--gray-400)'}}>
           <span>© 2026 Andrianne Saavedra · Built to move the metric.</span>
           <span>Made with caffeine + editing timelines.</span>
         </div>
